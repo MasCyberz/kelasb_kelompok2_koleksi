@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 class KoleksiRepository(ABC):
     @abstractmethod
     def tambah(self, koleksi: Koleksi) -> bool:
