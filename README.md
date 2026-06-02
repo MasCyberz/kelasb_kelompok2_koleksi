@@ -1,6 +1,6 @@
 # Latihan Analisis Prinsip SOLID
 
-Repository ini berisi tugas analisis penerapan prinsip **SOLID** pada program Python sederhana tentang sistem kebun binatang.
+Repository ini berisi tugas analisis penerapan prinsip **SOLID** pada program Python sederhana tentang sistem Koleksi Buku.
 Tugas dilakukan secara berkelompok dengan pembagian analisis setiap prinsip SOLID dan sinkronisasi menggunakan GitHub.
 
 ---
@@ -20,12 +20,12 @@ Pada tugas ini, kami diminta untuk:
 
 | Nama Anggota | Tugas |
 |---|---|
-| Gayuh | Mengerjakan bagian hewan |
-| Rindy | Mengerjakan bagian zoo |
-| Keisha | Mengerjakan bagian interface |
-| Bintang | Mengerjakan bagian services |
-| Amelia | Mengerjakan bagian habitat |
-| Dimas | Perbaikan kode & Mengatur bagian main |
+| Gayuh | Mengerjakan bagian Koleksi Repo |
+| Rindy | Mengerjakan bagian Interface dan Main |
+| Keisha | Mengerjakan bagian Service |
+| Bintang | Mengerjakan bagian Buku dan Jurnal |
+| Amelia | Mengerjakan bagian Koleksi dan Majalah |
+| Dimas | Perbaikan kode & Mengatur bagian View |
 
 ---
 
