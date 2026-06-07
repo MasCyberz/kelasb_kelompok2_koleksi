@@ -9,6 +9,8 @@ from abc import ABC, abstractmethod
 class Koleksi(ABC):
     #Class Induk Abstrak untuk semua jenis media di perpustakaan.
     def __init__(self, kode_koleksi: str, judul: str, tahun_terbit: str, penerbit: str):
+    # Class Induk Abstrak untuk semua jenis media di perpustakaan.
+    def __init__(self, kode_koleksi, judul, tahun_terbit, penerbit):
         self.kode_koleksi = kode_koleksi
         self.judul = judul
         self.tahun_terbit = tahun_terbit
@@ -17,4 +19,5 @@ class Koleksi(ABC):
     @abstractmethod
     def tampilkan_detail(self):
         #Method abstrak yang wajib di-override oleh class anak (Buku, Jurnal, Majalah).
+        # fungsi yang wajib diisi oleh semua class anak
         pass
