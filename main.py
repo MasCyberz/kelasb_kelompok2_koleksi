@@ -1,6 +1,6 @@
 from repositories.koleksi_repo import KoleksiRepositoryImpl
-from services.koleksi_services import KoleksiService
-from views.koleksi_viiew import KoleksiView
+from services.koleksi_services import ...
+from views.koleksi_view import .....
 
 def main():
     repo = KoleksiRepositoryImpl()
