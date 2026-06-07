@@ -16,5 +16,6 @@ class Koleksi(ABC):
 
     @abstractmethod
     def tampilkan_info(self):
+    def tampilkan_detail(self):
         #Method abstrak yang wajib di-override oleh class anak (Buku, Jurnal, Majalah).
         pass
