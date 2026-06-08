@@ -1,13 +1,18 @@
+# ==========================================
+# Nama Anggota : Arindya Aulia Wardah 
+# NIM          : K3525050
+# ==========================================
+
 from repositories.koleksi_repo import KoleksiRepositoryImpl
-from services.koleksi_services import ...
-from views.koleksi_view import .....
+from services.koleksi_services import KoleksiService
+from views.koleksi_view import koleksiView
 
 def main():
     repo = KoleksiRepositoryImpl()
     service = KoleksiService(repo)
-    view = KoleksiView(service)
+    view = koleksiView(service)
 
-    view.tampilkan_menu_utama()
+    view.tampilan_menu_utama()
 
 if __name__ == "__main__":
     main()

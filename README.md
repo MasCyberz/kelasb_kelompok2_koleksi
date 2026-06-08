@@ -1,18 +1,64 @@
-# Latihan Analisis Prinsip SOLID
+# Sistem Manajemen Koleksi Perpustakaan - Penerapan Prinsip SOLID
 
-Repository ini berisi tugas analisis penerapan prinsip **SOLID** pada program Python sederhana tentang sistem Koleksi Buku.
-Tugas dilakukan secara berkelompok dengan pembagian analisis setiap prinsip SOLID dan sinkronisasi menggunakan GitHub.
+Repository ini berisi implementasi program **Sistem Manajemen Koleksi Perpustakaan** menggunakan bahasa Python dengan menerapkan prinsip-prinsip **SOLID** dalam pengembangan perangkat lunak berorientasi objek (Object-Oriented Programming).
+
+Program ini dikembangkan secara berkelompok dengan pembagian tugas berdasarkan komponen sistem serta sinkronisasi menggunakan GitHub.
 
 ---
 
-## Deskripsi Tugas
+## Deskripsi Proyek
 
-Pada tugas ini, kami diminta untuk:
+Sistem ini digunakan untuk mengelola berbagai jenis koleksi perpustakaan, yaitu:
 
-1. Menganalisis apakah kode program sudah memenuhi prinsip SOLID.
-2. Menentukan prinsip SOLID yang sudah terpenuhi maupun yang masih dilanggar.
-3. Memberikan solusi dan perbaikan kode agar sesuai dengan semua prinsip SOLID.
-4. Melakukan pengerjaan secara berkelompok dan sinkronisasi project menggunakan GitHub.
+* Buku
+* Majalah
+* Jurnal
+
+Fitur yang tersedia:
+
+* Menambahkan data koleksi
+* Menampilkan seluruh data koleksi
+* Menghapus data koleksi
+* Penyimpanan data menggunakan Repository Pattern
+* Pemisahan tanggung jawab berdasarkan prinsip SOLID
+
+---
+
+## Tujuan Pengembangan
+
+Pada proyek ini kami menerapkan prinsip SOLID agar kode:
+
+* Lebih terstruktur
+* Mudah dikembangkan
+* Mudah dipelihara
+* Memiliki tanggung jawab yang jelas pada setiap class
+* Mengurangi ketergantungan antar komponen
+
+---
+
+## Struktur Project
+
+```text
+manajemen_koleksi/
+│
+├── models/
+│   ├── base_koleksi.py
+│   ├── buku.py
+│   ├── majalah.py
+│   └── jurnal.py
+│
+├── repositories/
+│   ├── interface_repo.py
+│   └── koleksi_repository.py
+│
+├── services/
+│   └── koleksi_services.py
+│
+├── views/
+│   └── koleksi_view.py
+│
+└── main.py
+```
 
 ---
 
@@ -20,12 +66,12 @@ Pada tugas ini, kami diminta untuk:
 
 | Nama Anggota | Tugas |
 |---|---|
-| Gayuh | Mengerjakan bagian Koleksi Repo |
-| Rindy | Mengerjakan bagian Interface dan Main |
-| Keisha | Mengerjakan bagian Service |
-| Bintang | Mengerjakan bagian Buku dan Jurnal |
-| Amelia | Mengerjakan bagian Koleksi dan Majalah |
-| Dimas | Perbaikan kode & Mengatur bagian View |
+| Gayuh | Mengerjakan bagian Repository |
+| Rindy | Mengerjakan Interface Repository dan Main Program |
+| Keisha | Mengerjakan Service |
+| Bintang | Mengerjakan Model Buku dan Jurnal |
+| Amelia | Mengerjakan Model Koleksi dan Majalah |
+| Dimas | Mengerjakan View, Integrasi Program, dan Perbaikan Kode |
 
 ---
 
@@ -133,22 +179,19 @@ Setelah sukses melakukan push, saatnya menggabungkan code kamu ke branch utama m
 
 # Teknologi yang Digunakan
 
-- Python 3
-- GitHub Desktop
-- Visual Studio Code
+* Python 3
+* GitHub
+* GitHub Desktop
+* Visual Studio Code
+* Object Oriented Programming (OOP)
 
 ---
 
 # Kesimpulan
 
-Dari hasil analisis, kode awal belum memenuhi seluruh prinsip SOLID karena masih terdapat beberapa hal, seperti pemaksaan method `terbang()` kepada semua hewan dan ketergantungan langsung antar class.
+Melalui proyek Sistem Manajemen Koleksi Perpustakaan ini, kami mempelajari penerapan prinsip-prinsip SOLID dalam pengembangan perangkat lunak berorientasi objek.
 
-Dengan melakukan refactor menggunakan abstract class dan pemisahan interface, kode menjadi:
-
-* lebih fleksibel
-* mudah dikembangkan
-* lebih terstruktur
-* sesuai dengan prinsip SOLID
+Dengan memisahkan tanggung jawab ke dalam Model, Repository, Service, dan View, kode menjadi lebih modular, mudah dipelihara, serta lebih siap untuk dikembangkan di masa mendatang.
 
 ---
 

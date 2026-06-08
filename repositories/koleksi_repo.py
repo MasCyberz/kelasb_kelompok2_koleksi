@@ -1,6 +1,7 @@
 # Analisis:
 # Nama : Ken Gayuh Nusa Islami
 # NIM  : K3525031
+# Bagian tugas : koleksi_repo
 
 
 from repositories.interface import KoleksiRepository
@@ -26,9 +27,13 @@ class KoleksiRepositoryImpl(KoleksiRepository):
                 self._data.pop(i)
                 return True
             
-        print("Error: Kode {} tidak ditemukan!".format(kode))
         return False
-
+    
+    def cari(self, kode):
+        for koleksi in self._data:
+            if koleksi.kode == kode:
+                return koleksi
+        return None
 
     def get_semua(self):
-        return self._data[:]
+        return self._data
