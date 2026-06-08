@@ -26,9 +26,13 @@ class KoleksiRepositoryImpl(KoleksiRepository):
                 self._data.pop(i)
                 return True
             
-        print("Error: Kode {} tidak ditemukan!".format(kode))
         return False
-
+    
+    def cari(self, kode):
+        for koleksi in self._data:
+            if koleksi.kode == kode:
+                return koleksi
+        return None
 
     def get_semua(self):
-        return self._data[:]
+        return self._data
