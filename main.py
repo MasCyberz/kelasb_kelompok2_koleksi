@@ -1,3 +1,8 @@
+# ==========================================
+# Nama Anggota : Arindya Aulia Wardah 
+# NIM          : K3525050
+# ==========================================
+
 from repositories.koleksi_repo import KoleksiRepositoryImpl
 from services.koleksi_services import KoleksiService
 from views.koleksi_view import koleksiView
