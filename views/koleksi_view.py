@@ -92,8 +92,8 @@ class koleksiView:
             kode,
             judul,
             tahun_terbit,
-            edisi,
-            penerbit
+            penerbit,
+            edisi
         )
         
         print("Buku berhasil ditambahkan.")
