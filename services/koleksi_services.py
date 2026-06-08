@@ -3,61 +3,111 @@
 # NIM: K3525041
 # Bagian: Service - operasi tambah, hapus, tampil koleksi
 
-from abc import ABC, abstractmethod
-
-
-# Interface service (ISP - dipisah sesuai fungsi)
-
-class ITambahService(ABC):
-    @abstractmethod
-    def tambah(self, koleksi):
-        pass
-
-class IHapusService(ABC):
-    @abstractmethod
-    def hapus(self, kode: str):
-        pass
-
-class ITampilService(ABC):
-    @abstractmethod
-    def tampil_semua(self):
-        pass
+from models.buku import Buku
+from models.jurnal import Jurnal
+from models.majalah import Majalah
 
 
 # Implementasi service (SRP - satu class satu tugas)
 # (DIP - data diterima dari luar, tidak dibuat sendiri)
 
-class TambahService(ITambahService):
-    def __init__(self, data_koleksi: list):
-        self.data = data_koleksi
+class KoleksiService:
+    def __init__(self, repository):
+        self.repository = repository
 
-    def tambah(self, koleksi):
-        self.data.append(koleksi)
-        print("Data berhasil ditambahkan!")
+    def TambahBuku(self, kode_koleksi, judul, tahun_terbit, penerbit, pengarang):
+        if self.repository.cari(kode_koleksi):
+            raise ValueError("Kode koleksi sudah digunakan!")
+        
+        if not judul.strip():
+            raise ValueError("Judul tidak boleh kosong")
 
+        if not tahun_terbit.strip():
+            raise ValueError("Tahun terbit tidak boleh kosong")
 
-class HapusService(IHapusService):
-    def __init__(self, data_koleksi: list):
-        self.data = data_koleksi
+        if not penerbit.strip():
+            raise ValueError("Penerbit tidak boleh kosong")
 
-    def hapus(self, kode: str):
-        sebelum = len(self.data)
-        self.data[:] = [k for k in self.data if k.kode != kode]
-        if len(self.data) < sebelum:
-            print("Data berhasil dihapus!")
-        else:
-            print("Kode tidak ditemukan!")
-
-
-class TampilService(ITampilService):
-    def __init__(self, data_koleksi: list):
-        self.data = data_koleksi
-
-    def tampil_semua(self):
-        if not self.data:
-            print("Data kosong!")
-            return
-        for i, k in enumerate(self.data, 1):
-            print(f"\nKoleksi {i}")
-            k.tampil()
+        if not pengarang.strip():
+            raise ValueError("Pengarang tidak boleh kosong")
+        
+        buku = Buku(
+            kode_koleksi,
+            judul,
+            tahun_terbit,
+            penerbit,
+            pengarang
+        )
             
+        self.repository.tambah(buku)
+
+    def TambahMajalah(self, kode_koleksi, judul, tahun_terbit, penerbit, edisi):
+        if self.repository.cari(kode_koleksi):
+            raise ValueError("Kode koleksi sudah digunakan!")
+        
+        if not judul.strip():
+            raise ValueError("Judul tidak boleh kosong")
+
+        if not tahun_terbit.strip():
+            raise ValueError("Tahun terbit tidak boleh kosong")
+
+        if not penerbit.strip():
+            raise ValueError("Penerbit tidak boleh kosong")
+
+        if not edisi.strip():
+            raise ValueError("Edisi tidak boleh kosong")
+        
+        majalah = Majalah(
+            kode_koleksi,
+            judul,
+            tahun_terbit,
+            penerbit,
+            edisi
+        )
+            
+        self.repository.tambah(majalah)
+
+    def TambahJurnal(self, kode_koleksi, judul, tahun_terbit, penerbit, bidang_studi, impact_factor):
+        if self.repository.cari(kode_koleksi):
+            raise ValueError("Kode koleksi sudah digunakan!")
+        
+        if not judul.strip():
+            raise ValueError("Judul tidak boleh kosong")
+
+        if not tahun_terbit.strip():
+            raise ValueError("Tahun terbit tidak boleh kosong")
+
+        if not penerbit.strip():
+            raise ValueError("Penerbit tidak boleh kosong")
+
+        if not bidang_studi.strip():
+            raise ValueError("Bidang Studi tidak boleh kosong")
+
+        if not impact_factor.strip():
+            raise ValueError("Impact Factor tidak boleh kosong")
+        
+        jurnal = Jurnal(
+            kode_koleksi,
+            judul,
+            tahun_terbit,
+            penerbit,
+            bidang_studi,
+            impact_factor
+        )
+            
+        self.repository.tambah(jurnal)
+            
+    def hapus_koleksi(self, kode):
+        if not kode.strip():
+            raise ValueError("Kode tidak boleh kosong")
+        
+        if not self.repository.hapus(kode):
+            raise ValueError("Kode tidak ditemukan")
+                  
+    def lihat_semua(self):
+        data = self.repository.get_semua()
+        
+        if not data:
+            raise ValueError("Data koleksi masih kosong")
+    
+        return data
