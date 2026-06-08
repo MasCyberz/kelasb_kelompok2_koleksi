@@ -31,7 +31,7 @@ class KoleksiRepositoryImpl(KoleksiRepository):
     
     def cari(self, kode):
         for koleksi in self._data:
-            if koleksi.kode == kode:
+            if koleksi.kode_koleksi == kode:
                 return koleksi
         return None
 
