@@ -1,6 +1,7 @@
 # Analisis:
 # Nama : Ken Gayuh Nusa Islami
 # NIM  : K3525031
+# Bagian tugas : koleksi_repo
 
 
 from repositories.interface import KoleksiRepository
