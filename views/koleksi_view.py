@@ -92,8 +92,8 @@ class koleksiView:
             kode,
             judul,
             tahun_terbit,
-            edisi,
-            penerbit
+            penerbit,
+            edisi
         )
         
         print("Buku berhasil ditambahkan.")
@@ -135,8 +135,10 @@ class koleksiView:
             data = self.service.lihat_semua()
             
             for i, item in enumerate(data, 1):
-                print(f"\n[{i}]")
-                print(item.tampilkan_detail())
+                detail = item.tampilkan_detail()
+                print(f"\nKoleksi {i}:")
+                for key, value in detail.items():
+                    print(f"  {key:<15}: {value}")
 
         except ValueError as e:
             print(e)
